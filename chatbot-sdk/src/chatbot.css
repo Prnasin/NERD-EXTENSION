@@ -1,0 +1,237 @@
+/* =======================
+   CHAT BUTTON (Floating)
+   ======================= */
+
+.chat-button {
+  /* Position it fixed on the screen */
+  position: fixed;
+  
+  /* Bottom right corner */
+  bottom: 24px;
+  right: 24px;
+  
+  /* Size: 56x56 pixels */
+  width: 56px;
+  height: 56px;
+  
+  /* Round it into a circle */
+  border-radius: 50%;
+  
+  /* Colors */
+  background: linear-gradient(66deg, #de48e5, #1c1e7d);     /* Black background */
+  color: #fff;           /* White text */
+  
+  /* Center the emoji inside */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Styling */
+  cursor: pointer;       /* Hand cursor on hover */
+  font-size: 22px;       /* Size of emoji */
+  box-shadow: -7px -10px 60px 0px #d778e087; /* Shadow effect */
+  z-index: 999999;       /* Always on top */
+  border: none;          /* No border */
+}
+
+/* =======================
+   CHAT BOX (Container)
+   ======================= */
+
+.chat-box {
+  /* Fixed position relative to viewport */
+  position: fixed;
+  
+  /* Position above the button */
+  bottom: 90px;
+  right: 24px;
+  
+  /* Size: 320 wide, 420 tall */
+     width: 420px;
+    height: 530px;
+  
+  /* Colors and appearance */
+  background: #fff;      /* White background */
+  border-radius: 14px;   /* Rounded corners */
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);  /* Larger shadow */
+  
+  /* Use flexbox to arrange children vertically */
+  display: flex;
+  flex-direction: column;  /* Stack items vertically */
+  overflow: hidden;        /* Hide content that overflows */
+  
+  z-index: 999999;       /* Always on top */
+  font-family: Inter, system-ui, sans-serif;  /* Font */
+}
+
+/* =======================
+   HEADER (Title Bar)
+   ======================= */
+
+.header {
+  /* Dark background for header */
+  background: linear-gradient(45deg, #de48e5, #1c1e7d);
+  color: #fff;
+  padding: 12px 14px;    /* Space inside */
+  font-size: 15px;
+  
+  /* Arrange items side by side */
+  display: flex;
+  justify-content: space-between;  /* Title on left, close on right */
+  align-items: center;    /* Vertically centered */
+}
+
+/* =======================
+   CLOSE ICON (X button)
+   ======================= */
+
+.close-icon {
+  cursor: pointer;       /* Hand cursor */
+  font-size: 16px;
+}
+
+/* =======================
+   MESSAGE AREA (Chat history)
+   ======================= */
+
+.message-area {
+  /* Take up all remaining space */
+  flex: 1;
+  
+  /* Padding and spacing */
+  padding: 12px;
+  
+  /* Light gray background */
+  background: #e1c0ed;
+  
+  /* Allow scrolling if many messages */
+  overflow-y: auto;
+  
+  /* Arrange messages vertically */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;              /* Space between messages */
+}
+
+/* =======================
+   MESSAGE BUBBLE
+   ======================= */
+
+.bubble {
+  /* Size and spacing */
+  max-width: 85%;        /* Don't take full width */
+  padding: 8px 12px;     /* Space inside bubble */
+  
+  /* Rounded corners */
+  border-radius: 14px;
+  
+  /* Text styling */
+  font-size: 14px;
+  line-height: 1.4;      /* Space between lines */
+  word-wrap: break-word; /* Break long words */
+}
+
+/* USER MESSAGE (Right side, black) */
+.bubble-user {
+  align-self: flex-end;  /* Push to right */
+  background: #0f172a;      /* Black background */
+  color: #fff;           /* White text */
+  border-top-right-radius: 4px;  /* Sharp corner on top right */
+}
+
+/* BOT MESSAGE (Left side, gray) */
+.bubble-bot {
+  align-self: flex-start;  /* Push to left */
+  background: #e5e7eb;   /* Light gray background */
+  color: #111;           /* Dark text */
+  border-top-left-radius: 4px;   /* Sharp corner on top left */
+}
+
+/* TYPING INDICATOR */
+.typing {
+  align-self: flex-start;  /* On the left */
+  background: #e5e7eb;
+  color: #111;
+  border-top-left-radius: 4px;
+}
+
+/* =======================
+   INPUT CONTAINER
+   ======================= */
+
+.input-container {
+  /* Arrange input and button side by side */
+  display: flex;
+  
+  /* Border on top to separate from messages */
+  border-top: 1px solid #e5e7eb;
+  
+  /* Padding and spacing */
+  padding: 8px;
+  gap: 6px;              /* Space between input and button */
+}
+
+/* =======================
+   TEXT INPUT FIELD
+   ======================= */
+
+.input {
+  /* Take up available space */
+  flex: 1;
+  
+  /* Padding and borders */
+  padding: 8px 10px;
+  border: 1px solid #d1d5db;  /* Light gray border */
+  border-radius: 8px;         /* Slightly rounded */
+  
+  /* Text styling */
+  font-size: 13px;
+  outline: none;              /* Remove default focus outline */
+}
+
+/* When input is focused (user clicks in it) */
+.input:focus {
+  border-color: #0f172a;  /* Change border to black */
+}
+
+/* When input is disabled (while bot is typing) */
+.input:disabled {
+  background: #f3f4f6;  /* Lighter gray background */
+  cursor: not-allowed;  /* Not allowed cursor */
+}
+
+/* =======================
+   SEND BUTTON
+   ======================= */
+
+.send-button {
+  /* Padding */
+  padding: 8px 16px;
+  
+  /* Colors */
+  background: #0f172a;      /* Black background */
+  color: #fff;           /* White text */
+  
+  /* Border and radius */
+  border: none;
+  border-radius: 8px;
+  
+  /* Text */
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* When hovering over button (not disabled) */
+.send-button:hover:not(:disabled) {
+  background: #333;  /* Slightly lighter black */
+}
+
+/* When button is disabled (while bot is typing) */
+.send-button:disabled {
+  background: #ccc;      /* Gray background */
+  cursor: not-allowed;   /* Not allowed cursor */
+}
+
+.chat-list {
+  margin-left: 3px;
+}
