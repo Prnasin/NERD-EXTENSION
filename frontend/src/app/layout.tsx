@@ -25,18 +25,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body> 
-        <Script src="http://localhost:3005/chatbot-sdk.umd.js" 
-        strategy="beforeInteractive"/>
-        {/* <script async src="http://localhost:61345/chatbot-sdk.umd.js"/>  */}
-        {/* <link
-  rel="stylesheet"
-  href="http://localhost:3005/chatbot-sdk.css"
-/> */}
-        {children}
-        
-      </body>
+      <body>
+        <Script
+          src="http://localhost:3005/chatbot-sdk.umd.js"
+          strategy="beforeInteractive"
+        />
 
+        <link rel="stylesheet" href="http://localhost:3005/chatbot-sdk.css" />
+        {children}
+      </body>
     </html>
   );
 }

@@ -5,8 +5,11 @@ chrome.runtime.onMessage.addListener((message, sender) => {
         chrome.storage.local.set({ selectedText: message.payload });
 
         // ✅ Open tab
+        // chrome.tabs.create({
+        //     url: "index.html"
+        // });
         chrome.tabs.create({
-            url: "index.html"
-        });
+  url: "http://localhost:3000"
+});
     }
 });

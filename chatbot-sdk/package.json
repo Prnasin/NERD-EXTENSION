@@ -7,8 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "serve": "npx serve dist -l 3005 --cors"
-
+    "serve": "npx serve dist -l 3005 --cors",
+    "format": "prettier --write ."
   },
   "keywords": [],
   "author": "",
@@ -18,5 +18,8 @@
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "vite": "^8.0.3"
+  },
+  "devDependencies": {
+    "prettier": "^3.8.1"
   }
 }

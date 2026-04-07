@@ -2,14 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
-  reactCompiler: true,
-  output: "export",
-  assetPrefix: "./",
-  images: {
-    unoptimized: true
-  } 
-  
-  
+  // reactCompiler: true,
 };
 
 export default nextConfig;

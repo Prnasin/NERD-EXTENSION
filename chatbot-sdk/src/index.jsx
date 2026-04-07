@@ -13,5 +13,3 @@ function renderMyComponent(containerId, props = {}) {
 window.ChatbotSDK = {
   renderMyComponent,
 };
-
-

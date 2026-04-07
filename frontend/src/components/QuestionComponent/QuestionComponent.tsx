@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react";
 
-interface Question { //type defined for question object
+interface Question {
+  //type defined for question object
   ques_title: string;
   url: string;
   difficulty: string;

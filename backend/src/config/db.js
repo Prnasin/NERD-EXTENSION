@@ -11,16 +11,15 @@ const pool = mysql.createPool({
   port: process.env.DB_PORT,
 });
 // console.log("123", pool)
-const checkConnection = async ()=> {
-    try {
-        const connection = await pool.getConnection();
-        console.log("db connection succesful")
-        connection.release();
-    } catch (error) {
-        console.log("error in db")
-        throw error;
-        
-    }
-}
+const checkConnection = async () => {
+  try {
+    const connection = await pool.getConnection();
+    console.log("db connection succesful");
+    connection.release();
+  } catch (error) {
+    console.log("error in db");
+    throw error;
+  }
+};
 
-export {pool, checkConnection};
+export { pool, checkConnection };
