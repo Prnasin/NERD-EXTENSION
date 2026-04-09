@@ -4,7 +4,7 @@ import cors from "cors";
 app.use(express.json());
 app.use(
   cors({
-    origin: "*", //allowing for only this, where frontend running
+    origin: "http://localhost:3000", //allowing for only this, where frontend running
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   }),

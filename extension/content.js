@@ -9,14 +9,21 @@ document.addEventListener("mousemove", (e) => {
     lastMouseY = e.clientY;
 });
 
-// Detect selection
-document.addEventListener("mouseup", (e) => {
-    if (button && button.contains(e.target)) return;
+let selectedText = "";
+
+document.addEventListener("selectionchange", () => {
     const text = window.getSelection().toString().trim();
-    console.log("Selected text:", text);
 
     if (text.length > 0) {
-        showButton(lastMouseX, lastMouseY, text);
+        selectedText = text;
+        console.log("Stored selection:", selectedText);
+    }
+});
+document.addEventListener("mouseup", (e) => {
+    if (button && button.contains(e.target)) return;
+
+    if (selectedText.length > 0) {
+        showButton(lastMouseX, lastMouseY);
     } else {
         removeButton();
     }
@@ -40,18 +47,30 @@ function showButton(x, y, text) {
     button.style.cursor = "pointer";
 
     // 
+    chrome.runtime.onMessage.addListener((msg) => {
+    if (msg.type === "SEND_TO_PAGE") {
+        console.log("Sending to page:", msg.data);
+
+        window.postMessage(
+            {
+                type: "FROM_EXTENSION",
+                data: msg.data
+            },
+            "*"
+        );
+    }
+});
     button.onclick = () => {
-        console.log("Button clicked:", text);
+        console.log("Button clicked:", selectedText);
 
-        // ✅ STORE TEXT
-        chrome.storage.local.set({
-            selectedText: text
-        });
-
-        // ✅ Trigger extension page
         chrome.runtime.sendMessage({
-            type: "OPEN_EXPLAIN"
-        });
+        type: "OPEN_EXPLAIN",
+        payload: selectedText
+    });
+
+        
+
+        
     };
 
     document.body.appendChild(button);

@@ -53,15 +53,15 @@ const generateExplanation = async (code_snippet) => {
     console.log(result);
     const insertid = result.insertId;
     const values = result3.map((row) => [insertid, row.id]);
-    const insertQuery = `
+    if (values.length > 0) {
+      const insertQuery = `
             INSERT INTO code_snippet_topic_mapper (code_id, topic_id)
             VALUES ?
             `;
 
-    await pool.query(insertQuery, [values]);
+      await pool.query(insertQuery, [values]);
 
-    console.log("===>", answer);
-
+    }
     return { answer: answer.explanation, insertid, topics };
   } catch (error) {
     console.log("====1>", error);

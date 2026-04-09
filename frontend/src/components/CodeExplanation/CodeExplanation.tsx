@@ -1,35 +1,65 @@
 "use client";
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import "./codeExplanation.css";
-// import "../styles/globals.css";
-// interface similarQuestions { //type defined for question object
-//   ques_title: string;
-//   url: string;
-//   difficulty: string;
-//   topics: string;
-// }
+
 interface SimilarQuestion {
   ques_title: string;
   url: string;
   difficulty: string;
   topics: string;
 }
-const CodeExplanation = () => {
+const CodeExplanation = ({
+  setCodeId,
+}: {
+  setCodeId: Dispatch<SetStateAction<number>>;
+}) => {
   const [explanation, setExplanation] = useState("");
   const [topics, setTopics] = useState([]);
-  const [codeId, setCodeId] = useState(0);
   const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
-
   const [similarQuestions, setSimilarQuestions] = useState<SimilarQuestion[]>(
     [],
   );
-  const [text, setText] = useState(
-    "for (int i = 0; i < m; i++) { for (int j = 0; j < n; j++) { transposeGrid[j][i] = grid[i][j]; } }",
-  );
+  const [text, setText] = useState("");
+
   useEffect(() => {
-    getExplanation();
+    console.log("mount");
+
+    // ONLY runs on refresh / first load
+    const savedCode = localStorage.getItem("selectedCode");
+    const savedExplanation = localStorage.getItem("explanation");
+    const savedTopics = localStorage.getItem("topics");
+    const code_id = localStorage.getItem("code_id");
+
+    if (savedCode && savedExplanation && savedTopics) {
+      console.log("Loaded from localStorage");
+
+      setText(savedCode);
+      setExplanation(savedExplanation);
+      setTopics(JSON.parse(savedTopics));
+      setCodeId(Number(code_id));
+    }
+
+    //  ONLY runs when extension sends message
+    const handler = (event: any) => {
+      if (event.data?.type === "FROM_EXTENSION") {
+        console.log("From extension");
+
+        const newCode = event.data.data;
+        if (newCode === localStorage.getItem("selectedCode")) {
+          console.log("Same code → skipping API");
+          return;
+        }
+        //  DO NOT TOUCH localStorage here
+        setText(newCode);
+        getExplanation(newCode);
+      }
+    };
+
+    window.addEventListener("message", handler);
+    return () => window.removeEventListener("message", handler);
   }, []);
+
   const handleClick = async (topic: string) => {
     try {
       const res = await fetch("http://localhost:3001/similar-questions", {
@@ -44,38 +74,40 @@ const CodeExplanation = () => {
 
       const result = await res.json();
 
-      console.log("==>", result);
       setSimilarQuestions(result.questions);
       setShowModal(true);
     } catch (err) {
       console.error("Error fetching explanation:", err);
     }
   };
-  const getExplanation = async () => {
+  const getExplanation = async (codeSnippet: string) => {
     try {
       setLoading(true);
-      // console.log("Calling API");
+
       const res = await fetch("http://localhost:3001/explanation", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          code_snippet: text,
+          code_snippet: String(codeSnippet),
         }),
       });
 
       const result = await res.json();
 
-      console.log("==>", result);
+      setExplanation(result.explanation || "");
+      localStorage.setItem("code_id", result.code_id);
+      localStorage.setItem("selectedCode", codeSnippet);
+      localStorage.setItem("explanation", result.explanation || "");
+      localStorage.setItem("topics", JSON.stringify(result.topics || []));
 
-      // store only data array
-      setExplanation(result.explanation);
-      setTopics(result.topics);
+      setCodeId(result.code_id);
+      setTopics(Array.isArray(result.topics) ? result.topics : []);
     } catch (err) {
       console.error("Error fetching explanation:", err);
     } finally {
-      setLoading(false); //
+      setLoading(false); 
     }
   };
 
@@ -112,21 +144,18 @@ const CodeExplanation = () => {
             </div>
           ) : (
             <div className="topics">
-              {topics.map((item, index) => (
-                <span
-                  key={index}
-                  onClick={() => handleClick(item)}
-                  role="button"
-                  tabIndex={0}
-                >
-                  {item}
-                </span>
-              ))}
+              {Array.isArray(topics) && topics.length > 0 ? (
+                topics.map((item, index) => (
+                  <span key={index} onClick={() => handleClick(item)}>
+                    {item}
+                  </span>
+                ))
+              ) : (
+                <p>No topics found</p>
+              )}
             </div>
           )}
         </div>
-
-        {/* RIGHT PANEL - EMBEDDED CHATBOT WILL GO HERE */}
       </div>
 
       {/* FOOTER */}
