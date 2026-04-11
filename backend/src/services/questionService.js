@@ -8,7 +8,6 @@ const generateQuestions = async (code_id) => {
         `;
     const [result1] = await pool.execute(query1, [code_id]);
     const topicIds = result1.map((row) => row.topic_id);
-    console.log("1===>", topicIds);
     if (topicIds.length === 0) {
       return `No topics found for code_id ${code_id}`;
     }
@@ -18,11 +17,6 @@ const generateQuestions = async (code_id) => {
         `;
     const [result2] = await pool.execute(query2, topicIds);
     const questionIds = result2.map((row) => row.question_id);
-
-    console.log("2===>", questionIds);
-    // if (questionIds.length === 0) {
-    //     return `No questions found for code_id ${code_id}`;
-    // }
 
     const query3 = `
         SELECT id, url, title, difficulty FROM question_bank
@@ -40,12 +34,7 @@ const generateQuestions = async (code_id) => {
     result4.forEach((row) => {
       topicMap[row.id] = row.topic;
     });
-    console.log("4===>", result4);
-    console.log("3===>", result3);
-    console.log("2===>", result2);
-    console.log("1===>", result1);
-    console.log("===>", topicMap);
-
+    
     return {
       questions: result3,
       url: query3.url,
@@ -79,7 +68,6 @@ const generateQuestionsV2 = async (code_id) => {
 
         `;
     const [result] = await pool.execute(query, [code_id]);
-    console.log("===>", result);
     return { questions: result };
   } catch (error) {
     console.error("Error generating questions:", error);
@@ -107,7 +95,6 @@ const generateSimilarQuestions = async (topic) => {
             GROUP BY qb.id, qb.title, qb.url, qb.difficulty
             `;
     const [result] = await pool.execute(query, [topic]);
-    console.log("===>", result);
     return { questions: result };
   } catch (error) {
     console.error("Error generating questions:", error);

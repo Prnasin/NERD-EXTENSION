@@ -1,6 +1,6 @@
-import express from "express";
-const app = express();
-import cors from "cors";
+import express from "express"; //backend module that enables api creation
+const app = express(); //create an instance of express to set up the server
+import cors from "cors"; //middleware to allow cross-origin requests, enabling communication between frontend and backend 
 app.use(express.json());
 app.use(
   cors({
@@ -20,7 +20,10 @@ import {
   similarQuestions,
 } from "./src/controllers/questionController.js";
 
-app.post("/chatbot", getAnswer);
+//define api endpoints and link them to their respective controller functions
+//api creates
+//what any endpoint is hit the corresponding funs are called
+app.post("/chatbot", getAnswer); 
 app.post("/clear-history", clearHistory);
 app.post("/explanation", getExplanation);
 app.post("/questions", getQuestions);

@@ -1,8 +1,8 @@
-chrome.runtime.onMessage.addListener((message, sender) => {
+chrome.runtime.onMessage.addListener((message, sender) => { //listener
     if (message.type === "OPEN_EXPLAIN") {
 
         //  store data
-        chrome.storage.local.set({
+        chrome.storage.local.set({ //set
             selectedCode: message.payload
         });
         

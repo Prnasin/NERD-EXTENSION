@@ -1,4 +1,4 @@
-// import { generateAnswer } from "../services/chatbotService";
+
 import { generateAnswer, deleteHistory } from "../services/chatbotService.js";
 
 const getAnswer = async (req, res) => {

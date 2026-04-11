@@ -8,17 +8,18 @@ const openai = new OpenAI({
 
 const generateAnswer = async (code_id, question) => {
   try {
-    const query3 = `
+    const convoHistoryQuery = `
     SELECT role, content FROM conversation_history
     WHERE code_id = ? and DELETED = ?
     `;
-    const [result3] = await pool.execute(query3, [code_id, 0]);
-    const query4 = `
-    SELECT snippet, explanation FROM code_snippet_history
+    const [convoHistory] = await pool.execute(convoHistoryQuery, [code_id, 0]); //reading inside of array in result convoHistory
+    const explanationQuery = `
+    SELECT snippet, explanation FROM code_snippet_history 
     WHERE id = ? and DELETED = ?
     `;
-    const [result4] = await pool.execute(query4, [code_id, 0]);
+    const [explanation] = await pool.execute(explanationQuery, [code_id, 0]); //checking if explanation already exists for code snippet, if yes, we can send that in the prompt to give more context to model and get better answer
 
+    //sending context and explanation to ai
     let messages = [
       {
         role: "system",
@@ -38,31 +39,32 @@ If asked about non-code topics, politely redirect: "I'm specialized in code assi
 Keep responses focused, technical, and developer-friendly.`,
       },
     ];
-    messages.push({ role: "user", content: result4[0].snippet });
-    messages.push({ role: "assistant", content: result4[0].explanation });
-    messages.push(...result3);
+    messages.push({ role: "user", content: explanation[0].snippet });
+    messages.push({ role: "assistant", content: explanation[0].explanation });
+    messages.push(...convoHistory);
 
     messages.push({ role: "user", content: question });
-    console.log(messages);
-    const query = `
+    
+    const insertQuestionQuery = `
       INSERT INTO conversation_history (code_id, role, content)
       VALUES (?, ?, ?)
     `;
 
-    await pool.execute(query, [code_id, "user", question]);
+    await pool.execute(insertQuestionQuery, [code_id, "user", question]); 
 
+    //asking answer 
     const completion = await openai.chat.completions.create({
       messages: messages,
       model: "deepseek-chat",
     });
-
     let answer = completion.choices[0].message.content;
-    const query2 = `
+
+    const insertAnswerQuery = `
       INSERT INTO conversation_history (code_id, role, content)
       VALUES (?, ?, ?)
     `;
 
-    await pool.execute(query2, [code_id, "assistant", answer]);
+    await pool.execute(insertAnswerQuery, [code_id, "assistant", answer]);
 
     return answer;
   } catch (error) {
@@ -71,12 +73,12 @@ Keep responses focused, technical, and developer-friendly.`,
 };
 const deleteHistory = async (code_id) => {
   try {
-    const query3 = `
+    const deleteHistoryQuery = `
     UPDATE conversation_history
     SET deleted = 1
     WHERE code_id = ? and deleted = ?
     `;
-    await pool.execute(query3, [code_id, 0]);
+    await pool.execute(deleteHistoryQuery, [code_id, 0]);
     return true;
   } catch (error) {
     return false;

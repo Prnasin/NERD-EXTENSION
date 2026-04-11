@@ -7,7 +7,7 @@ const getExplanation = async (req, res) => {
       return res.status(400).json({ error: "code_snippet required" });
     }
 
-    const { answer, insertid, topics } =
+    const { answer, insertid, topics } = //params coming from service generateExplanation function
       await generateExplanation(code_snippet);
     if (insertid) {
       res.status(200).json({

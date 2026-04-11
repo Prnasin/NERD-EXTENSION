@@ -46,7 +46,7 @@ const CodeExplanation = ({
         console.log("From extension");
 
         const newCode = event.data.data;
-        if (newCode === localStorage.getItem("selectedCode")) {
+        if (newCode === localStorage.getItem("selectedCode")) { 
           console.log("Same code → skipping API");
           return;
         }
@@ -102,7 +102,7 @@ const CodeExplanation = ({
       localStorage.setItem("explanation", result.explanation || "");
       localStorage.setItem("topics", JSON.stringify(result.topics || []));
 
-      setCodeId(result.code_id);
+      setCodeId(result.code_id); //chatbotsdk is reloaded with a new codeid as it is in useeffect on change of codeid
       setTopics(Array.isArray(result.topics) ? result.topics : []);
     } catch (err) {
       console.error("Error fetching explanation:", err);

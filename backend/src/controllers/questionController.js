@@ -5,7 +5,7 @@ import {
 } from "../services/questionService.js";
 
 // Controller function to handle POST /questions
-const getQuestions = async (req, res) => {
+const getQuestions = async (req, res) => { //function to get questions related to a code snippet via code_id sent in request body
   try {
     const { code_id } = req.body;
     if (!code_id) {
@@ -19,7 +19,7 @@ const getQuestions = async (req, res) => {
   }
 };
 
-const similarQuestions = async (req, res) => {
+const similarQuestions = async (req, res) => { //function to get similar questions based on a topic
   try {
     const { topic } = req.body;
     if (!topic) {

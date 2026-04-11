@@ -1,16 +1,22 @@
-// export default function Chatbot({ name }) {
-//   return <h1>Hello {name}</h1>;
-// }
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./chatbot.css";
 
-export default function Chatbot({ code_id }) {
+export default function Chatbot({ code_id }) { //code_id is passed as a prop from page.tsx
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([]); //array of all messages in chat
   const [input, setInput] = useState("");
   const [isLoading, setLoading] = useState(false);
+  const [showText, setShowText] = useState(true);
+
+  useEffect(() => {
+  const timer = setTimeout(() => {
+    setShowText(false);
+  }, 4000);
+
+  return () => clearTimeout(timer);
+}, []);
 
   const addMessages = (text, from) => {
     const newMessage = {
@@ -30,7 +36,7 @@ export default function Chatbot({ code_id }) {
       addMessages(text, "user");
       setInput("");
       setLoading(true);
-
+      //calling chatbot api with codeid and question in req body
       const res = await fetch("http://localhost:3001/chatbot", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -85,80 +91,165 @@ word-break:break-word;'><code>${code.trim()}</code></pre>`;
   </div>
 `;
   };
+  const handleMouseLeave = () => {
+  setTimeout(() => {
+    setShowText(false);
+  }, 2000);
+};
 
-  return (
-    <>
-      {/* Chat Button - Always visible */}
-      <button
-        className="chat-button"
-        onClick={() => setIsOpen(!isOpen)} // Toggle chat box on/off
-      >
-        💬
-      </button>
+//   return (
+//     <>
+//       {/* Chat Button - Always visible */}
+//       <button
+//         className="chat-button"
+//         onClick={() => setIsOpen(!isOpen)} // Toggle chat box on/off
+//       >
+//         💬
+//       </button>
 
-      {/* Chat Box - Only visible if isOpen is true */}
-      {isOpen && (
-        <div className="chat-box">
-          {/* Header */}
-          <div className="header">
-            <span>AI Code Assistent</span>
-            {/* Close button */}
-            <span
-              className="close-icon"
-              onClick={() => setIsOpen(false)} // Close chat
-            >
-              ✕
-            </span>
-          </div>
+//       {/* Chat Box - Only visible if isOpen is true */}
+//       {isOpen && (
+//         <div className="chat-box">
+//           {/* Header */}
+//           <div className="header">
+//             <span>AI Code Assistent</span>
+//             {/* Close button */}
+//             <span
+//               className="close-icon"
+//               onClick={() => setIsOpen(false)} // Close chat
+//             >
+//               ✕
+//             </span>
+//           </div>
 
-          {/* Messages Area */}
-          <div className="message-area">
-            {/* Loop through all messages */}
-            {messages.map((msg) => (
-              <div
-                key={msg.id} // Required by React for lists
-                className={`bubble ${
-                  msg.from === "user" ? "bubble-user" : "bubble-bot"
-                }`}
-              >
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: formatMessage(msg.text),
-                  }}
-                />
-              </div>
-            ))}
+//           {/* Messages Area */}
+//           <div className="message-area">
+//             {/* Loop through all messages */}
+//             {messages.map((msg) => (
+//               <div
+//                 key={msg.id} // Required by React for lists
+//                 className={`bubble ${
+//                   msg.from === "user" ? "bubble-user" : "bubble-bot"
+//                 }`}
+//               >
+//                 <div
+//                   dangerouslySetInnerHTML={{
+//                     __html: formatMessage(msg.text),
+//                   }}
+//                 />
+//               </div>
+//             ))}
 
-            {/* Show "Typing..." when bot is responding */}
-            {isLoading && (
-              <div className="bubble bubble-bot typing">Typing...</div>
-            )}
-          </div>
+//             {/* Show "Typing..." when bot is responding */}
+//             {isLoading && (
+//               <div className="bubble bubble-bot typing">Typing...</div>
+//             )}
+//           </div>
 
-          {/* Input Area */}
-          <div className="input-container">
-            {/* Text input field */}
-            <input
-              type="text"
-              className="input"
-              placeholder="Type a message"
-              value={input} // Controlled input
-              onChange={(e) => setInput(e.target.value)} // Update input state
-              onKeyPress={(e) => e.key === "Enter" && handleSend()} // Send on Enter
-              disabled={isLoading} // Disable while loading
-            />
+//           {/* Input Area */}
+//           <div className="input-container">
+//             {/* Text input field */}
+//             <input
+//               type="text"
+//               className="input"
+//               placeholder="Type a message"
+//               value={input} // Controlled input
+//               onChange={(e) => setInput(e.target.value)} // Update input state
+//               onKeyPress={(e) => e.key === "Enter" && handleSend()} // Send on Enter
+//               disabled={isLoading} // Disable while loading
+//             />
 
-            {/* Send button */}
-            <button
-              className="send-button"
-              onClick={handleSend} // Send message on click
-              disabled={isLoading} // Disable while loading
-            >
-              Send
-            </button>
-          </div>
+//             {/* Send button */}
+//             <button
+//               className="send-button"
+//               onClick={handleSend} // Send message on click
+//               disabled={isLoading} // Disable while loading
+//             >
+//               Send
+//             </button>
+//           </div>
+//         </div>
+//       )}
+//     </>
+//   );
+// }
+
+return (
+  <>
+    {/* Chat Icon Button */}
+    <div
+      className="tp-icon-container"
+      onClick={() => setIsOpen(!isOpen)}
+    >
+      <div
+        className="tp-icon"
+        style={{
+          backgroundImage:
+            "url(https://jsak.mmtcdn.com/pwa/platform-myra-ui/static/sub_icons/tp-new-animated-without-con.webp)",
+        }}
+      />
+    </div>
+
+    {/* Chat Box */}
+    {isOpen && (
+      <div className="chat-box">
+        {/* Header */}
+        <div className="header">
+          <span>AI Code Assistant</span>
+          <span
+            className="close-icon"
+            onClick={() => setIsOpen(false)}
+          >
+            ✕
+          </span>
         </div>
-      )}
-    </>
-  );
+
+        {/* Messages */}
+        <div className="message-area">
+          {messages.map((msg) => (
+            <div
+              key={msg.id}
+              className={`bubble ${
+                msg.from === "user" ? "bubble-user" : "bubble-bot"
+              }`}
+            >
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: formatMessage(msg.text),
+                }}
+              />
+            </div>
+          ))}
+
+          {isLoading && (
+            <div className="bubble bubble-bot typing">
+              Typing...
+            </div>
+          )}
+        </div>
+
+        {/* Input */}
+        <div className="input-container">
+          <input
+            type="text"
+            className="input"
+            placeholder="Type a message"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && handleSend()}
+            disabled={isLoading}
+          />
+
+          <button
+            className="send-button"
+            onClick={handleSend}
+            disabled={isLoading}
+          >
+            Send
+          </button>
+        </div>
+      </div>
+    )}
+  </>
+);
 }

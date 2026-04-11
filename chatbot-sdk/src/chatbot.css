@@ -1,237 +1,255 @@
 /* =======================
-   CHAT BUTTON (Floating)
+   CHAT BUTTON (MATCHES TP ICON)
    ======================= */
 
 .chat-button {
-  /* Position it fixed on the screen */
   position: fixed;
+  bottom: 20px;
+  right: 20px;
 
-  /* Bottom right corner */
-  bottom: 24px;
-  right: 24px;
+  width: 68px;
+  height: 68px;
 
-  /* Size: 56x56 pixels */
-  width: 56px;
-  height: 56px;
-
-  /* Round it into a circle */
   border-radius: 50%;
+  background: #fff;
 
-  /* Colors */
-  background: linear-gradient(66deg, #de48e5, #1c1e7d); /* Black background */
-  color: #fff; /* White text */
-
-  /* Center the emoji inside */
   display: flex;
   align-items: center;
   justify-content: center;
 
-  /* Styling */
-  cursor: pointer; /* Hand cursor on hover */
-  font-size: 22px; /* Size of emoji */
-  box-shadow: -7px -10px 60px 0px #d778e087; /* Shadow effect */
-  z-index: 999999; /* Always on top */
-  border: none; /* No border */
+  font-size: 24px;
+  cursor: pointer;
+
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.25s ease;
+
+  z-index: 9999;
+  border: none;
+}
+
+.chat-button:hover {
+  transform: scale(1.1);
 }
 
 /* =======================
-   CHAT BOX (Container)
+   CHAT BOX
    ======================= */
 
 .chat-box {
-  /* Fixed position relative to viewport */
   position: fixed;
+  bottom: 100px;
+  right: 20px;
 
-  /* Position above the button */
-  bottom: 90px;
-  right: 24px;
+  width: 380px;
+  height: 520px;
 
-  /* Size: 320 wide, 420 tall */
-  width: 420px;
-  height: 530px;
+  background: #fff;
+  border-radius: 16px;
 
-  /* Colors and appearance */
-  background: #fff; /* White background */
-  border-radius: 14px; /* Rounded corners */
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25); /* Larger shadow */
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
 
-  /* Use flexbox to arrange children vertically */
   display: flex;
-  flex-direction: column; /* Stack items vertically */
-  overflow: hidden; /* Hide content that overflows */
+  flex-direction: column;
+  overflow: hidden;
 
-  z-index: 999999; /* Always on top */
-  font-family: Inter, system-ui, sans-serif; /* Font */
+  z-index: 9999;
+
+  font-family: Inter, system-ui, sans-serif;
+
+  /* Smooth open animation */
+  transform: translateY(20px) scale(0.95);
+  opacity: 0;
+  animation: chatFadeIn 0.25s ease forwards;
+}
+
+@keyframes chatFadeIn {
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
 }
 
 /* =======================
-   HEADER (Title Bar)
+   HEADER
    ======================= */
 
 .header {
-  /* Dark background for header */
-  background: linear-gradient(45deg, #de48e5, #1c1e7d);
-  color: #fff;
-  padding: 12px 14px; /* Space inside */
+  background: #ffffff;
+  color: #111;
+
+  padding: 14px;
+
   font-size: 15px;
+  font-weight: 600;
 
-  /* Arrange items side by side */
   display: flex;
-  justify-content: space-between; /* Title on left, close on right */
-  align-items: center; /* Vertically centered */
+  justify-content: space-between;
+  align-items: center;
+
+  border-bottom: 1px solid #eee;
 }
 
-/* =======================
-   CLOSE ICON (X button)
-   ======================= */
-
+/* Close icon */
 .close-icon {
-  cursor: pointer; /* Hand cursor */
-  font-size: 16px;
+  cursor: pointer;
+  font-size: 18px;
+  opacity: 0.6;
+  transition: 0.2s;
+}
+
+.close-icon:hover {
+  opacity: 1;
 }
 
 /* =======================
-   MESSAGE AREA (Chat history)
+   MESSAGE AREA
    ======================= */
 
 .message-area {
-  /* Take up all remaining space */
   flex: 1;
-
-  /* Padding and spacing */
   padding: 12px;
 
-  /* Light gray background */
-  background: #e1c0ed;
+  background: #f9fafb;
 
-  /* Allow scrolling if many messages */
   overflow-y: auto;
 
-  /* Arrange messages vertically */
   display: flex;
   flex-direction: column;
-  gap: 8px; /* Space between messages */
+  gap: 10px;
 }
 
 /* =======================
-   MESSAGE BUBBLE
+   MESSAGE BUBBLES
    ======================= */
 
 .bubble {
-  /* Size and spacing */
-  max-width: 85%; /* Don't take full width */
-  padding: 8px 12px; /* Space inside bubble */
+  max-width: 80%;
+  padding: 10px 14px;
 
-  /* Rounded corners */
   border-radius: 14px;
 
-  /* Text styling */
-  font-size: 14px;
-  line-height: 1.4; /* Space between lines */
-  word-wrap: break-word; /* Break long words */
+  font-size: 13px;
+  line-height: 1.4;
+
+  word-wrap: break-word;
 }
 
-/* USER MESSAGE (Right side, black) */
+/* USER */
 .bubble-user {
-  align-self: flex-end; /* Push to right */
-  background: #0f172a; /* Black background */
-  color: #fff; /* White text */
-  border-top-right-radius: 4px; /* Sharp corner on top right */
+  align-self: flex-end;
+  background: #111;
+  color: #fff;
+  border-top-right-radius: 4px;
 }
 
-/* BOT MESSAGE (Left side, gray) */
+/* BOT */
 .bubble-bot {
-  align-self: flex-start; /* Push to left */
-  background: #e5e7eb; /* Light gray background */
-  color: #111; /* Dark text */
-  border-top-left-radius: 4px; /* Sharp corner on top left */
-}
-
-/* TYPING INDICATOR */
-.typing {
-  align-self: flex-start; /* On the left */
-  background: #e5e7eb;
+  align-self: flex-start;
+  background: #fff;
+  border: 1px solid #eee;
   color: #111;
   border-top-left-radius: 4px;
 }
 
+/* TYPING */
+.typing {
+  align-self: flex-start;
+  background: #fff;
+  border: 1px solid #eee;
+  color: #666;
+  font-style: italic;
+}
+
 /* =======================
-   INPUT CONTAINER
+   INPUT AREA
    ======================= */
 
 .input-container {
-  /* Arrange input and button side by side */
   display: flex;
+  padding: 10px;
+  gap: 8px;
 
-  /* Border on top to separate from messages */
-  border-top: 1px solid #e5e7eb;
-
-  /* Padding and spacing */
-  padding: 8px;
-  gap: 6px; /* Space between input and button */
+  border-top: 1px solid #eee;
+  background: #fff;
 }
 
-/* =======================
-   TEXT INPUT FIELD
-   ======================= */
-
+/* INPUT FIELD */
 .input {
-  /* Take up available space */
   flex: 1;
+  padding: 10px;
 
-  /* Padding and borders */
-  padding: 8px 10px;
-  border: 1px solid #d1d5db; /* Light gray border */
-  border-radius: 8px; /* Slightly rounded */
+  border: 1px solid #ddd;
+  border-radius: 10px;
 
-  /* Text styling */
   font-size: 13px;
-  outline: none; /* Remove default focus outline */
+  outline: none;
+
+  transition: 0.2s;
 }
 
-/* When input is focused (user clicks in it) */
 .input:focus {
-  border-color: #0f172a; /* Change border to black */
+  border-color: #111;
 }
 
-/* When input is disabled (while bot is typing) */
-.input:disabled {
-  background: #f3f4f6; /* Lighter gray background */
-  cursor: not-allowed; /* Not allowed cursor */
-}
-
-/* =======================
-   SEND BUTTON
-   ======================= */
-
+/* SEND BUTTON */
 .send-button {
-  /* Padding */
-  padding: 8px 16px;
+  padding: 10px 14px;
 
-  /* Colors */
-  background: #0f172a; /* Black background */
-  color: #fff; /* White text */
+  background: #111;
+  color: #fff;
 
-  /* Border and radius */
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
 
-  /* Text */
   font-size: 13px;
   cursor: pointer;
+
+  transition: 0.2s;
 }
 
-/* When hovering over button (not disabled) */
 .send-button:hover:not(:disabled) {
-  background: #333; /* Slightly lighter black */
+  background: #333;
 }
 
-/* When button is disabled (while bot is typing) */
 .send-button:disabled {
-  background: #ccc; /* Gray background */
-  cursor: not-allowed; /* Not allowed cursor */
+  background: #ccc;
+  cursor: not-allowed;
 }
+
+/* =======================
+   SMALL DETAILS
+   ======================= */
 
 .chat-list {
-  margin-left: 3px;
+  margin-left: 4px;
+}
+
+.tp-icon-container {
+  width: 68px;
+  height: 68px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  z-index: 9999;
+}
+
+.tp-icon {
+  width: 60px;
+  height: 60px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.tp-icon-container:hover {
+  transform: scale(1.1);
+  transition: 0.2s ease;
 }

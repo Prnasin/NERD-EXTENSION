@@ -30,50 +30,49 @@ Guidelines:
     ];
 
     messages.push({ role: "user", content: code_snippet });
-    console.log(messages);
 
     const completion = await openai.chat.completions.create({
       messages: messages,
       model: "deepseek-chat",
       response_format: {
-        type: "json_object",
+        type: "json_object", //because we want response in json format to easily extract explanation and topics and use them in frontend and database
       },
     });
 
-    let answer = JSON.parse(completion.choices[0].message.content);
-    const topics = answer.topics;
-    const query3 = `
+    let response = JSON.parse(completion.choices[0].message.content);
+    const topics = response.topics;
+
+    const topicsQuery= `
         SELECT id FROM topics
         WHERE topic IN (?)
         `;
-    const [result3] = await pool.query(query3, [topics]);
+    const [topicsResult] = await pool.query(topicsQuery, [topics]);
 
-    console.log("123====>", result3);
 
-    const query2 = `
+    const insertQuery = `
           INSERT INTO code_snippet_history (snippet, explanation)
           VALUES (?, ?)
         `;
 
-    const [result] = await pool.execute(query2, [
+    const [result] = await pool.execute(insertQuery, [
       code_snippet,
-      answer.explanation,
+      response.explanation,
     ]);
-    console.log(result);
+   
     const insertid = result.insertId;
-    const values = result3.map((row) => [insertid, row.id]);
+
+    const values = topicsResult.map((row) => [insertid, row.id]); //preparing values to insert into code_snippet_topic_mapper table to link code snippet with its topics
     if (values.length > 0) {
-      const insertQuery = `
+      const insertQuery2 = `
             INSERT INTO code_snippet_topic_mapper (code_id, topic_id)
             VALUES ?
             `;
 
-      await pool.query(insertQuery, [values]);
+      await pool.query(insertQuery2, [values]); //inserting multiple rows at once to link code snippet with its topics in mapper table
 
     }
-    return { answer: answer.explanation, insertid, topics };
+    return { answer: response.explanation, insertid, topics };
   } catch (error) {
-    console.log("====1>", error);
     return { answer: `error generating answer: ${error}`, insertid: null };
   }
 };
