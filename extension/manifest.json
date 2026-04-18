@@ -17,5 +17,11 @@
       "js": ["content.js", "inject.js"],
       "css": ["content.css"]
     }
-  ]
+  ],
+  "icons": {
+    "16": "nerd.png",
+    "32": "nerd.png",
+    "48": "nerd.png",
+    "128": "nerd.png"
+  }
 }

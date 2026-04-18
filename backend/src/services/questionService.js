@@ -34,7 +34,7 @@ const generateQuestions = async (code_id) => {
     result4.forEach((row) => {
       topicMap[row.id] = row.topic;
     });
-    
+
     return {
       questions: result3,
       url: query3.url,

@@ -5,12 +5,14 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --env-file=.env index.js",
+    "start": "nodemon --env-file=.env index.js",
+    "import:gfg": "node --env-file=.env src/scripts/importQuestions.js",
     "format": "prettier --write ."
   },
   "dependencies": {
     "body-parser": "^2.2.2",
     "cors": "^2.8.6",
+    "csv-parser": "^3.2.0",
     "express": "^5.2.1",
     "mysql2": "^3.20.0",
     "openai": "^6.27.0"
@@ -20,6 +22,7 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "nodemon": "^3.1.14",
     "prettier": "^3.8.1"
   }
 }

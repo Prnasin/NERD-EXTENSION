@@ -23,8 +23,7 @@ const generateAnswer = async (code_id, question) => {
     let messages = [
       {
         role: "system",
-        content:
-          `You are an expert code assistant specializing in explaining and debugging code. 
+        content: `You are an expert code assistant specializing in explaining and debugging code. 
 Your role is to:
 - Answer code-related questions clearly and concisely in 2-3 sentences
 - Provide accurate technical explanations with examples when helpful
@@ -44,15 +43,15 @@ Keep responses focused, technical, and developer-friendly.`,
     messages.push(...convoHistory);
 
     messages.push({ role: "user", content: question });
-    
+
     const insertQuestionQuery = `
       INSERT INTO conversation_history (code_id, role, content)
       VALUES (?, ?, ?)
     `;
 
-    await pool.execute(insertQuestionQuery, [code_id, "user", question]); 
+    await pool.execute(insertQuestionQuery, [code_id, "user", question]);
 
-    //asking answer 
+    //asking answer
     const completion = await openai.chat.completions.create({
       messages: messages,
       model: "deepseek-chat",

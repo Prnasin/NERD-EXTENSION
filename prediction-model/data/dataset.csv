@@ -1,0 +1,641 @@
+content,label
+int main(){return 0;},code
+for(int i=0;i<n;i++){},code
+"def add(a,b): return a+b",code
+console.log('Hello'),code
+while(true){},code
+if(x>10){x--},code
+let x = 5;,code
+print('Hello'),code
+class Solution{},code
+arr.push(10);,code
+SELECT * FROM users;,code
+<html><body></body></html>,code
+function test(){return true;},code
+try{}catch(e){},code
+echo 'Hello';,code
+#include <iostream>,code
+std::vector<int> v;,code
+public static void main(String[] args){},code
+lambda x: x+1,code
+import numpy as np,code
+document.getElementById('id'),code
+x=[i for i in range(10)],code
+"map<int,int> mp;",code
+"cout<<""Hello"";",code
+"System.out.println(""Hi"")",code
+fetch('/api'),code
+Promise.resolve(),code
+async function run(){},code
+"useEffect(()=>{},[])",code
+var a=function(){},code
+int x=10;,code
+float y=3.14;,code
+char c='a';,code
+bool flag=true;,code
+if(a==b){return;},code
+for(let i=0;i<10;i++){},code
+while(x<100){x++;},code
+do{x++;}while(x<10);,code
+switch(x){case 1:break;},code
+try{doSomething();}catch(e){},code
+"new Promise((res,rej)=>{})",code
+"const arr=[1,2,3];",code
+arr.map(x=>x*2),code
+arr.filter(x=>x>0),code
+"arr.reduce((a,b)=>a+b)",code
+JSON.parse('{}'),code
+JSON.stringify(obj),code
+Math.random(),code
+Date.now(),code
+require('fs'),code
+module.exports={},code
+export default function(){},code
+from sklearn import svm,code
+pip install numpy,code
+"git commit -m ""msg""",code
+docker run ubuntu,code
+kubectl get pods,code
+chmod 777 file,code
+ls -la,code
+cd /home,code
+pwd,code
+touch file.txt,code
+rm -rf folder,code
+mkdir test,code
+cat file.txt,code
+"grep ""test"" file",code
+awk '{print $1}',code
+sed 's/a/b/',code
+echo hello,code
+"printf(""hi"");",code
+"scanf(""%d"",&x);",code
+malloc(sizeof(int)),code
+free(ptr),code
+vector<int> v;,code
+set<int> s;,code
+"unordered_map<int,int> mp;",code
+priority_queue<int> pq;,code
+stack<int> st;,code
+queue<int> q;,code
+list<int> l;,code
+"pair<int,int> p;",code
+"tuple<int,int,int> t;",code
+cin>>x;,code
+return x;,code
+break;,code
+continue;,code
+pass,code
+raise Exception(),code
+with open('file') as f:,code
+try: pass except:,code
+class A:,code
+self.x=10,code
+super().__init__(),code
+def func(): pass,code
+yield x,code
+async def run(): pass,code
+await fetch(),code
+lambda x:x+1,code
+"map(lambda x:x+1,a)",code
+"filter(lambda x:x>0,a)",code
+"reduce(lambda a,b:a+b,a)",code
+"np.array([1,2,3])",code
+pd.DataFrame(),code
+"plt.plot(x,y)",code
+sns.heatmap(data),code
+tf.keras.Model(),code
+"torch.tensor([1,2])",code
+"x=torch.randn(3,3)",code
+"model.fit(X,y)",code
+model.predict(X),code
+optimizer.step(),code
+loss.backward(),code
+for epoch in range(10):,code
+"if __name__==""__main__"":",code
+main(),code
+exit(),code
+quit(),code
+sys.exit(),code
+import os,code
+import sys,code
+import math,code
+import random,code
+import time,code
+import datetime,code
+import json,code
+import re,code
+import threading,code
+import multiprocessing,code
+Hello how are you,text
+I love programming,text
+This is a normal sentence,text
+Kal kya plan hai,text
+dekh le bhai kya kar raha hai,text
+Let's go for a walk,text
+Machine learning is interesting,text
+Aaj mausam acha hai,text
+Can we meet tomorrow,text
+He is reading a book,text
+She enjoys cooking,text
+Life is beautiful,text
+Time flies quickly,text
+We are learning new things,text
+This project is important,text
+Bhai kya scene hai,text
+Where are you going,text
+Let's build something cool,text
+Coding is fun sometimes,text
+I need some help,text
+Please review this,text
+This looks good to me,text
+What are you doing,text
+Let's fix this bug,text
+Everything will be fine,text
+I am feeling great today,text
+He went to the market,text
+She is watching a movie,text
+We should start early,text
+This is really important,text
+Don't forget to call me,text
+I will reach soon,text
+Let's plan a trip,text
+This is not working,text
+Try again later,text
+I will check it,text
+Please send details,text
+Are you available,text
+Call me when free,text
+Let's discuss later,text
+I am busy right now,text
+This is confusing,text
+Can you explain,text
+I don't understand,text
+It makes sense,text
+This is amazing,text
+That was awesome,text
+Good job bro,text
+Nice work,text
+Keep going,text
+Never give up,text
+Stay focused,text
+Work hard,text
+Believe in yourself,text
+Trust the process,text
+Enjoy the journey,text
+Be consistent,text
+Stay positive,text
+Think big,text
+Act now,text
+Do your best,text
+Make it happen,text
+You can do it,text
+Keep learning,text
+Stay curious,text
+Ask questions,text
+Explore more,text
+Try new things,text
+Be creative,text
+Think differently,text
+Solve problems,text
+Stay calm,text
+Focus on goals,text
+Plan ahead,text
+Manage time,text
+Take breaks,text
+Stay healthy,text
+Eat well,text
+Sleep properly,text
+Exercise daily,text
+Drink water,text
+Stay hydrated,text
+Keep smiling,text
+Be happy,text
+Spread positivity,text
+Help others,text
+Be kind,text
+Respect everyone,text
+Listen carefully,text
+Speak clearly,text
+Write properly,text
+Read daily,text
+Learn continuously,text
+Grow everyday,text
+Stay motivated,text
+Never stop,text
+Push harder,text
+Keep improving,text
+Do better,text
+Aim high,text
+Stay strong,text
+Face challenges,text
+Overcome fear,text
+Be brave,text
+Stay humble,text
+Be grateful,text
+Appreciate life,text
+Enjoy moments,text
+Capture memories,text
+Live fully,text
+Stay present,text
+Focus now,text
+Avoid distractions,text
+Stay disciplined,text
+Work smart,text
+Stay organized,text
+Keep it simple,text
+Think clearly,text
+Act wisely,text
+Choose carefully,text
+Make decisions,text
+Take responsibility,text
+Be accountable,text
+Stay committed,text
+Follow through,text
+Finish tasks,text
+Complete goals,text
+Achieve success,text
+Celebrate wins,text
+Learn from failure,text
+Try again,text
+Don't quit,text
+Stay determined,text
+Keep pushing,text
+Move forward,text
+Stay on track,text
+Adjust plans,text
+Be flexible,text
+Adapt quickly,text
+Stay ready,text
+Be prepared,text
+Think ahead,text
+Plan smart,text
+Stay sharp,text
+Keep focus,text
+Maintain balance,text
+Enjoy work,text
+Love what you do,text
+Stay inspired,text
+Create impact,text
+Make difference,text
+Be useful,text
+Stay relevant,text
+Keep evolving,text
+Improve daily,text
+Upgrade skills,text
+Learn faster,text
+Think deeper,text
+Stay curious,text
+Explore ideas,text
+Test concepts,text
+Build things,text
+Ship products,text
+Fix bugs,text
+Write clean code,text
+Understand problems,text
+Find solutions,text
+Collaborate well,text
+Communicate clearly,text
+Support team,text
+Share knowledge,text
+Grow together,text
+Win together,text
+Celebrate success,text
+Keep momentum,text
+Stay driven,text
+Never settle,text
+Aim higher,text
+Push limits,text
+Break barriers,text
+Reach goals,text
+Stay consistent,text
+Build habits,text
+Stay focused,text
+Keep discipline,text
+Finish strong,text
+Deliver results,text
+Make progress,text
+Stay committed,text
+Keep learning,text
+Never stop growing,text
+int main(){ int n=10; for(int i=0;i<n;i++){ cout<<i<<endl; } return 0; },code
+def process_data(data): result=[]; for item in data: if item>0: result.append(item*2); return result,code
+function fetchData(){ return fetch('/api/data').then(res=>res.json()).then(d=>console.log(d)); },code
+"class User{ constructor(name,age){ this.name=name; this.age=age; } greet(){ return 'Hello '+this.name; }}",code
+"SELECT id,name,email FROM users WHERE active=1 ORDER BY created_at DESC LIMIT 10;",code
+<html><head><title>Test</title></head><body><div class='container'>Content</div></body></html>,code
+try{ let res = await axios.get('/data'); console.log(res.data); }catch(e){ console.error(e); },code
+"for(int i=0;i<100;i++){ if(i%2==0){ printf(\%d\"",i); } else { continue; } }""",code
+"const arr=[1,2,3,4,5]; const squared=arr.map(x=>x*x).filter(x=>x>10); console.log(squared);",code
+while(true){ let input = readline(); if(input==='exit'){ break; } process(input); },code
+import pandas as pd; df=pd.read_csv('file.csv'); df=df[df['col']>10]; print(df.head()),code
+public class Main{ public static void main(String[] args){ for(int i=0;i<5;i++){ System.out.println(i); } }},code
+"let obj={a:1,b:2}; Object.keys(obj).forEach(k=>console.log(k,obj[k]));",code
+"def fibonacci(n): a,b=0,1; seq=[]; for _ in range(n): seq.append(a); a,b=b,a+b; return seq",code
+async function run(){ try{ const data=await fetch('/api'); const json=await data.json(); }catch(err){ console.log(err);} },code
+if(x>10 && y<5){ doSomething(); } else if(z==0){ reset(); } else { fallback(); },code
+"vector<int> v={1,2,3}; for(auto &x:v){ cout<<x*x; }",code
+"map<string,int> mp; mp['a']=1; mp['b']=2; for(auto it:mp){ cout<<it.first<<it.second; }",code
+"function debounce(fn,delay){ let t; return (...args)=>{ clearTimeout(t); t=setTimeout(()=>fn(...args),delay); }; }",code
+"df.groupby('category').agg({'sales':'sum','profit':'mean'})",code
+"const express=require('express'); const app=express(); app.get('/',(req,res)=>res.send('hi')); app.listen(3000);",code
+try{ File f=new File('a.txt'); Scanner sc=new Scanner(f); while(sc.hasNext()){ System.out.println(sc.next()); }}catch(Exception e){},code
+"arr.reduce((acc,val)=>acc+val,0)",code
+"lambda x,y: x+y if x>y else y-x",code
+docker run -d -p 8080:80 nginx:latest,code
+kubectl apply -f deployment.yaml && kubectl get pods,code
+git clone repo && cd repo && npm install && npm start,code
+chmod -R 755 /var/www/html && chown user:user file,code
+sed -i 's/foo/bar/g' file.txt && grep 'bar' file.txt,code
+"awk '{print $1,$2}' data.txt | sort | uniq",code
+"const fs=require('fs'); fs.readFile('file.txt','utf8',(e,d)=>{ if(e) throw e; console.log(d); });",code
+"import torch; x=torch.randn(3,3); y=torch.mm(x,x); print(y)",code
+"model.fit(X_train,y_train,epochs=10,batch_size=32,validation_split=0.2)",code
+optimizer.zero_grad(); loss.backward(); optimizer.step(),code
+if __name__=='__main__': main(),code
+"with open('file.txt','r') as f: data=f.read(); print(data)",code
+"json.loads('{\a\"":1}')['a']""",code
+"Promise.all([fetch('/a'),fetch('/b')]).then(res=>console.log(res));",code
+new Date().toISOString().split('T')[0],code
+"setTimeout(()=>console.log('done'),1000)",code
+document.querySelectorAll('div').forEach(d=>d.style.color='red');,code
+"React.useEffect(()=>{ fetchData(); },[])",code
+"const [state,setState]=useState(0); setState(state+1);",code
+"function sum(a,b){ return a+b; } console.log(sum(2,3));",code
+"Math.max(...[1,5,3,9])",code
+"Number.parseInt('123',10)",code
+"Array.from({length:5},(_,i)=>i*i)",code
+String('hello').toUpperCase(),code
+"const map=new Map(); map.set('a',1); map.get('a');",code
+"Set([1,2,3]).has(2)",code
+fetch('/api').then(r=>r.json()).then(console.log),code
+console.error('Error occurred'),code
+typeof x === 'undefined',code
+Boolean(1) === true,code
+parseFloat('3.14'),code
+isNaN('abc'),code
+encodeURIComponent('test value'),code
+decodeURIComponent('%20'),code
+window.location.href,code
+"localStorage.setItem('key','value')",code
+sessionStorage.getItem('key'),code
+document.cookie='name=value',code
+alert('hello world'),code
+prompt('enter name'),code
+confirm('are you sure'),code
+history.back(),code
+navigator.userAgent,code
+screen.width,code
+"console.table([{a:1},{b:2}])",code
+performance.now(),code
+requestAnimationFrame(()=>{}),code
+cancelAnimationFrame(id),code
+new Worker('worker.js'),code
+postMessage('hello'),code
+onmessage=function(e){console.log(e.data)},code
+"XMLHttpRequest().open('GET','/api')",code
+"JSON.stringify({a:1,b:2})",code
+"Object.assign({},obj)",code
+Object.entries(obj),code
+Object.values(obj),code
+"Reflect.get(obj,'key')",code
+"Proxy(obj,{get(){}})",code
+Symbol('id'),code
+BigInt(123456789),code
+Intl.DateTimeFormat().format(new Date()),code
+RegExp('abc').test('abcdef'),code
+str.match(/abc/),code
+"str.replace(/a/g,'b')",code
+"str.split(',')",code
+str.trim(),code
+str.includes('test'),code
+arr.includes(5),code
+arr.indexOf(3),code
+arr.find(x=>x>10),code
+arr.every(x=>x>0),code
+arr.some(x=>x<0),code
+"arr.sort((a,b)=>a-b)",code
+arr.reverse(),code
+"arr.concat([6,7])",code
+"arr.slice(1,3)",code
+"arr.splice(2,1)",code
+"arr.join(',')",code
+arr.fill(0),code
+"arr.copyWithin(0,1)",code
+arr.entries(),code
+arr.keys(),code
+arr.values(),code
+This is a long paragraph explaining how machine learning models work in real life scenarios where data plays a crucial role in determining the outcome of predictions.,text
+I was thinking about going out for dinner tonight because the weather feels really pleasant and it might be a good time to relax after a long day.,text
+Kal socha tha ki thoda kaam karenge lekin pura din bas timepass hi hota raha aur kuch productive nahi ho paya honestly.,text
+Sometimes it feels like learning new things takes a lot of effort but in the long run it always pays off and makes you better.,text
+Bhai seriously bolu toh aaj ka din thoda hectic tha kaafi kaam tha aur upar se deadline bhi close thi toh pressure alag hi level ka tha.,text
+She was walking down the street thinking about all the decisions she had made and how each one of them shaped her life in different ways.,text
+We should probably sit together and discuss the entire plan in detail before actually starting to work on the execution part.,text
+I really enjoy having deep conversations about life because it helps me understand different perspectives and grow mentally.,text
+Aaj kal sab log itne busy ho gaye hain ki properly baat karne ka time hi nahi milta jo thoda sad bhi lagta hai kabhi kabhi.,text
+This project requires careful planning and proper execution otherwise it might lead to unexpected results and failures.,text
+When you start something new it always feels difficult at the beginning but gradually things start making sense over time.,text
+Life is not always about achieving big goals sometimes it's also about enjoying the small moments that bring happiness.,text
+He kept trying again and again even after failing multiple times because he believed that persistence would eventually lead to success.,text
+Kabhi kabhi lagta hai ki thoda break lena bhi zaroori hota hai warna burnout ho jata hai aur phir kaam mein mann nahi lagta.,text
+Reading books regularly can significantly improve your thinking ability and also enhance your vocabulary over time.,text
+They decided to postpone the meeting because some important members were not available at that particular moment.,text
+I think we should analyze the situation carefully before making any decision that might affect the entire outcome.,text
+Honestly speaking I did not expect things to turn out this way but now we have to deal with it and move forward.,text
+Ek baar try karne mein kya jaata hai agar fail bhi hue toh kuch naya seekhne ko hi milega na eventually.,text
+Consistency is the key factor that differentiates successful people from those who give up easily after facing challenges.,text
+Sometimes taking risks is necessary if you want to achieve something extraordinary in your life journey.,text
+Working in a team environment teaches you how to collaborate effectively and understand different viewpoints.,text
+You should always keep learning because the world is constantly evolving and new opportunities keep coming.,text
+Thoda sa patience rakho sab theek ho jayega itna tension lene ki bhi zarurat nahi hai har cheez time pe ho jaati hai.,text
+The more you practice something the better you become at it which is why repetition is considered important.,text
+Let's take a moment to appreciate the progress we have made so far instead of worrying too much about the future.,text
+I was wondering if we could catch up sometime soon because it's been a while since we last talked properly.,text
+Kya tumne notice kiya hai ki jab hum focused hote hain toh kaam kitni jaldi ho jata hai compared to distractions.,text
+Building good habits takes time but once they are formed they help you stay disciplined and productive.,text
+It is always a good idea to plan your tasks in advance so that you can manage your time more efficiently.,text
+Many people struggle with procrastination which ultimately affects their productivity and overall performance.,text
+Agar tum thoda sa effort aur daalo toh definitely better results mil sakte hain ismein koi doubt nahi hai.,text
+Understanding the problem clearly is the first step towards finding an effective solution to it.,text
+Sometimes we overthink things too much which leads to unnecessary stress and confusion.,text
+Taking feedback seriously can help you improve and identify areas where you need to work harder.,text
+Har kisi ka apna perspective hota hai isliye kisi bhi situation ko samajhne ke liye open minded rehna chahiye.,text
+Staying motivated is not always easy but having a clear goal can make the journey much smoother.,text
+It is important to maintain a balance between work and personal life to stay mentally healthy.,text
+Jo log consistent rehte hain woh eventually apne goals achieve kar lete hain chahe time lage.,text
+Learning from mistakes is one of the most effective ways to grow and improve yourself.,text
+You should not be afraid of failure because it is a natural part of the learning process.,text
+Sometimes the best ideas come when you least expect them so always stay open to possibilities.,text
+Aaj ka din kaafi productive tha kaafi kaam complete hua aur achha feel ho raha hai honestly.,text
+Keeping things simple can often lead to better results than overcomplicating everything unnecessarily.,text
+Every small step you take contributes towards your bigger goal so never underestimate progress.,text
+People often underestimate the power of consistency and discipline in achieving success.,text
+Ek strong mindset hona bahut zaroori hai warna challenges ke time pe breakdown ho sakta hai easily.,text
+Staying positive during tough times can make a huge difference in how you handle situations.,text
+Hard work always pays off eventually even if the results are not immediately visible.,text
+Jo bhi karo full dedication ke saath karo tabhi kuch meaningful achieve kar paoge life mein.,text
+"int main(){ int sum=0; for(int i=0;i<100;i++){ sum+=i; } printf(\%d\"",sum); return 0; }""",code
+for(int i=0;i<n;i++){ if(arr[i]%2==0){ even.push_back(arr[i]); } else { odd.push_back(arr[i]); } },code
+def process_data(data): result=[]; for x in data: if x>0: result.append(x*2); return result,code
+function fetchData(){ return fetch('/api/data').then(res=>res.json()).then(d=>console.log(d)); },code
+while(true){ if(queue.empty()){ break; } auto x=queue.front(); queue.pop(); process(x); },code
+if(user.isLoggedIn()){ renderDashboard(user); } else { redirectToLogin(); },code
+"let users = data.filter(u => u.active).map(u => ({ id: u.id, name: u.name })); console.log(users);",code
+print('Starting process'); total=0\nfor i in range(100): total+=i\nprint(total),code
+class Solution { public: int solve(vector<int>& a){ int ans=0; for(auto x:a) ans+=x; return ans; } };,code
+arr.forEach(item => { if(item.price > 100){ expensive.push(item); } }); console.log(expensive);,code
+"SELECT name, age FROM users WHERE age > 25 ORDER BY age DESC;",code
+<html><head><title>Test</title></head><body><div class='container'>Hello</div></body></html>,code
+"function sum(a,b){ return a+b; } let result = sum(5,10); console.log(result);",code
+try{ let data = JSON.parse(input); process(data); } catch(e){ console.error(e); },code
+echo 'Processing started'; for($i=0;$i<10;$i++){ echo $i; } echo 'Done';,code
+"#include <iostream>\nusing namespace std;\nint main(){ cout<<\Hello\""; return 0; }""",code
+"std::map<int,int> mp; for(int i=0;i<10;i++){ mp[i]=i*i; } for(auto &p:mp){ cout<<p.first; }",code
+public static void main(String[] args){ int sum=0; for(int i=0;i<10;i++){ sum+=i; } System.out.println(sum); },code
+"lambda_func = lambda x: x*x; values = list(map(lambda_func, range(10))); print(values)",code
+"import numpy as np; arr = np.array([1,2,3]); print(arr.mean());",code
+"document.querySelector('#btn').addEventListener('click',()=>{ alert('Clicked'); });",code
+x = [i*i for i in range(20) if i%2==0]; print(x),code
+"unordered_map<int,int> freq; for(auto x:arr){ freq[x]++; }",code
+"cout << \Processing\"" << endl; for(int i=0;i<10;i++){ cout<<i; }""",code
+"System.out.println(\Hello World\""); int x=10; if(x>5){ System.out.println(x); }""",code
+fetch('/data').then(r=>r.json()).then(d=>render(d)).catch(err=>console.error(err));,code
+"Promise.all([p1,p2]).then(res=>console.log(res)).catch(err=>console.log(err));",code
+async function load(){ try{ let res=await fetch('/api'); let d=await res.json(); } catch(e){ console.log(e); } },code
+"useEffect(()=>{ fetchData(); return ()=>cleanup(); },[]);",code
+"var handler = function(event){ console.log(event.target.value); }; document.addEventListener('input',handler);",code
+"int x=10; float y=20.5; char c='z'; bool flag=true; printf(\%d\"",x);""",code
+if(a==b){ doSomething(); } else { doOtherThing(); } return;,code
+"for(let i=0;i<10;i++){ setTimeout(()=>console.log(i),1000); }",code
+while(x<100){ x+=5; if(x%10==0){ break; } },code
+"do{ x++; }while(x<10); printf(\Done\"");""",code
+"switch(day){ case 1: printf(\Mon\""); break; default: printf(\""Other\""); }""",code
+try{ doWork(); }catch(Exception e){ log(e); } finally{ cleanup(); },code
+"new Promise((resolve,reject)=>{ if(ok) resolve(data); else reject(err); });",code
+"const arr=[1,2,3,4]; const squared=arr.map(x=>x*x); console.log(squared);",code
+"const filtered=arr.filter(x=>x>2); const sum=arr.reduce((a,b)=>a+b,0);",code
+"JSON.parse('{\a\"":1}'); JSON.stringify({b:2});""",code
+"Math.max(10,20,30); Math.min(1,2,3); Math.random();",code
+const now = Date.now(); console.log(new Date(now));,code
+"require('fs').readFile('file.txt',(err,data)=>{ if(err) throw err; console.log(data); });",code
+"module.exports = { add, subtract };",code
+export default function App(){ return <div>Hello</div>; },code
+from sklearn.linear_model import LogisticRegression; model = LogisticRegression();,code
+pip install pandas numpy scikit-learn,code
+"git add . && git commit -m \initial commit\"" && git push origin main""",code
+docker build -t app . && docker run -p 3000:3000 app,code
+kubectl get pods && kubectl describe pod mypod,code
+chmod 755 script.sh && ./script.sh,code
+ls -la /home/user && cd /home/user/projects,code
+pwd && mkdir new_folder && touch file.txt,code
+rm -rf build && mkdir build && cd build,code
+cat file.txt | grep 'error' | sort,code
+"awk '{print $1,$2}' file.txt",code
+sed 's/old/new/g' file.txt,code
+"echo \Hello World\"" >> output.txt""",code
+"printf(\%d %f\"",x,y); scanf(\""%d\"",&x);""",code
+int *ptr = (int*)malloc(sizeof(int)); *ptr=10; free(ptr);,code
+vector<int> v; v.push_back(1); v.push_back(2);,code
+set<int> s; s.insert(10); s.insert(20);,code
+"unordered_map<string,int> mp; mp[\a\""]=1;""",code
+priority_queue<int> pq; pq.push(5); pq.push(10);,code
+stack<int> st; st.push(1); st.pop();,code
+queue<int> q; q.push(2); q.pop();,code
+list<int> l; l.push_back(3);,code
+"pair<int,int> p = {1,2}; cout<<p.first;",code
+"tuple<int,int,int> t = make_tuple(1,2,3);",code
+cin >> x >> y; cout << x+y;,code
+return result; break; continue;,code
+pass\nraise Exception('error'),code
+with open('file.txt') as f:\n data=f.read(),code
+try:\n do()\nexcept Exception as e:\n print(e),code
+class A:\n def __init__(self): self.x=10,code
+self.value=100; super().__init__(),code
+def func(): yield from range(10),code
+async def run(): await fetch_data(),code
+await asyncio.sleep(1),code
+"map(lambda x:x+1, data)",code
+"filter(lambda x:x>0, data)",code
+"reduce(lambda a,b:a+b, data)",code
+"np.array([1,2,3]).reshape(3,1)",code
+"pd.DataFrame({'a':[1,2,3]})",code
+"plt.plot(x,y); plt.show()",code
+"sns.heatmap(data, annot=True)",code
+"tf.keras.Sequential([Dense(10),Dense(1)])",code
+"torch.tensor([1,2,3]).float()",code
+"x = torch.randn(5,5); y = x.mm(x)",code
+"model.fit(X,y,epochs=10)",code
+model.predict(X_test),code
+optimizer.zero_grad(); loss.backward(); optimizer.step(),code
+for epoch in range(50): train(epoch),code
+if __name__ == '__main__': main(),code
+exit(0); quit(); sys.exit(),code
+"import os, sys, math, random, time",code
+"import datetime, json, re, threading",code
+Today I was thinking about how quickly technology is evolving and how important it is to stay updated with new skills and trends in the industry.,text
+I had a long conversation with my friend about career choices and how sometimes it feels overwhelming to decide what path to take in life.,text
+"Kal hum log bahar gaye the aur waha kaafi achha food mila, especially the street snacks which were really tasty.",text
+Sometimes I feel like taking a break from everything and just going somewhere peaceful where I can relax and think clearly.,text
+We were discussing the project requirements in detail and trying to understand how we can improve the current implementation.,text
+Aaj pura din kaafi busy tha aur itni meetings thi ki kaam karne ka time hi nahi mila properly.,text
+I think learning new things every day is the best way to grow and become better at whatever you are doing.,text
+Bro honestly mujhe samajh nahi aa raha ki kya karna chahiye because situation thodi complicated lag rahi hai.,text
+The weather today is surprisingly pleasant and it feels like a perfect day to go out for a walk or spend time with friends.,text
+I was reading an article about artificial intelligence and how it is transforming different industries at a very fast pace.,text
+Kal ka match kaafi interesting tha aur last over tak suspense bana raha which made it even more exciting.,text
+I really enjoy listening to music while working because it helps me focus and stay productive for longer periods of time.,text
+There are moments in life when you need to take a step back and evaluate your decisions carefully before moving forward.,text
+Mujhe lagta hai ki consistency sabse important factor hota hai kisi bhi cheez me success achieve karne ke liye.,text
+The team worked really hard on this project and the results clearly show the amount of effort everyone has put into it.,text
+Sometimes even small changes in your daily routine can have a big impact on your overall productivity and mindset.,text
+I was planning to start working out regularly but somehow I keep postponing it which is not a good habit.,text
+Yaar seriously bolu toh thoda break lena chahiye warna burnout ho jayega itna continuous kaam karte karte.,text
+We need to focus more on improving communication because that is where most of the misunderstandings are happening.,text
+It is important to set realistic goals so that you can actually achieve them without feeling too stressed or pressured.,text
+I had a really good time meeting everyone after such a long time and catching up on all the things we missed.,text
+Aaj thoda productive feel ho raha hai aur lag raha hai ki kaafi kaam complete kar paunga by the end of the day.,text
+I think we should prioritize tasks properly instead of trying to do everything at once which often leads to confusion.,text
+Sometimes things don't go as planned and you just have to adapt and find another way to move forward.,text
+Bhai tu tension mat le sab theek ho jayega bas thoda patience rakh aur focus kar apne kaam pe.,text
+I was thinking about starting a new hobby because it helps in maintaining a good work-life balance.,text
+The discussion was quite intense but it helped in bringing out different perspectives on the same problem.,text
+Mujhe lagta hai ki thoda aur practice karne se sab improve ho sakta hai including speed and accuracy.,text
+I have been trying to manage my time better but distractions make it really difficult sometimes.,text
+There is always something new to learn if you stay curious and keep exploring different areas.,text
+Kal se properly routine follow karna hai warna kaam backlog ho jayega aur stress badhega.,text
+I believe that teamwork plays a very crucial role in achieving bigger goals effectively.,text
+Sometimes you just need to step out of your comfort zone to grow and learn new things.,text
+Yeh problem thodi tricky hai lekin agar dhyan se dekhen toh solution mil sakta hai easily.,text
+I was planning the entire week in advance so that I can manage all tasks without missing deadlines.,text
+"Honestly speaking, consistency is more important than motivation because motivation keeps changing.",text
+Aaj ka din kaafi acha tha aur kaafi cheezein plan ke according ho gayi which felt satisfying.,text
+I think we should review everything once again before making any final decision.,text
+Life becomes easier when you start focusing on what really matters instead of overthinking everything.,text
+Mujhe thoda sa break chahiye because continuously kaam karte rehna exhausting ho jata hai.,text
+Working in a team requires patience and understanding because everyone has different opinions.,text
+I was trying to fix the issue but realized that I need a better approach to solve it effectively.,text
+Agar hum thoda aur effort daale toh output definitely improve ho sakta hai significantly.,text
+The idea sounds really interesting but we need to validate it before implementing anything.,text
+I feel like planning things properly can save a lot of time and effort in the long run.,text
+Kal thoda late ho gaya tha isliye aaj schedule thoda off lag raha hai but manage ho jayega.,text
+I think taking small breaks in between work actually helps in maintaining focus.,text
+Yeh approach sahi lag rahi hai lekin ek baar aur check kar lena better hoga.,text
+There are times when you just need to trust the process and keep moving forward.,text
+I have been trying to improve my habits gradually instead of making drastic changes.,text
+Sometimes discussing problems with others gives you a completely new perspective.,text
+Mujhe lagta hai ki hum isko aur simplify kar sakte hain so that it becomes easier to understand.,text
+The meeting was quite productive and we were able to finalize most of the important points.,text
+I think we should start implementing this step by step instead of rushing everything.,text
+Kal ka plan abhi tak clear nahi hai but we will figure it out soon.,text
+Consistency and discipline are the key factors for long-term success in anything.,text
+Sometimes things take time and patience is the only way to deal with such situations.,text
+I feel like we are on the right track but need to put in more effort.,text
+Yeh idea kaafi promising lag raha hai but execution pe depend karega sab kuch.,text
+I was reviewing the work and found a few areas where improvements can be made.,text
+It is always better to double-check things before finalizing them.,text
+Aaj ka din thoda hectic tha but kaafi kaam complete ho gaya finally.,text
+I think we need to rethink this approach because it is not giving expected results.,text
+Mujhe lagta hai thoda aur brainstorming karna chahiye before proceeding further.,text
+Working consistently towards your goals eventually leads to success.,text
+I believe that learning never stops and there is always scope for improvement.,text

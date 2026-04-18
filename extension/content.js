@@ -3,6 +3,7 @@ let button;
 let lastMouseX = 0;
 let lastMouseY = 0;
 
+
 document.addEventListener("visibilitychange", () => { //hiding the button when user switch tab or minimize, otherwise the button will be shown in other tabs when user switch back
     if (!document.hidden) {
         selectedText = "";
@@ -27,12 +28,12 @@ document.addEventListener("selectionchange", () => { //listen for selection chan
         selectedText = text;
 
     } else {
-        // 🔥 ADD THIS (deselect case)
+        // ADD THIS (deselect case)
         selectedText = "";
         removeButton();
     }
 });
-document.addEventListener("mouseup", (e) => { //listen for mouse up event, if user select text and release mouse, show button, otherwise hide button
+document.addEventListener("mouseup", async (e) => { //listen for mouse up event, if user select text and release mouse, show button, otherwise hide button
     removeButton();
     const selectionObj = window.getSelection(); //get the selection object, not just the text, because we need the position of the selection to show the button
     const selection = selectionObj.toString().trim(); //get the selected text, if no text selected, hide button, otherwise show button
@@ -57,8 +58,32 @@ document.addEventListener("mouseup", (e) => { //listen for mouse up event, if us
         y = e.clientY;
     }
 
-    // show near selection end (down-left)
-    showButton(x - 60, y + 8);
+    // debounce API call (important)
+    // clearTimeout(debounceTimer);
+
+    // debounceTimer = setTimeout(async () => {
+        try {
+            const res = await fetch("http://localhost:3001/predict", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ text: selectedText })
+            });
+
+            const data = await res.json();
+
+            console.log("Prediction:", data);
+
+            // ONLY show button if it's code
+            if (data.prediction === "code") {
+                showButton(x - 60, y + 8);
+            }
+
+        } catch (err) {
+            console.error("API error:", err);
+        }
+    // }, 1); // small delay to avoid spam
 });
 
 

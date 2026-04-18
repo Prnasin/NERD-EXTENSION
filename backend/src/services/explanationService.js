@@ -18,19 +18,37 @@ const generateExplanation = async (code_snippet) => {
  
 Guidelines:
 - Explanation should be beginner-friendly but technically accurate
-- Topics should cover: data structures (array, linked list, tree), algorithms (sorting, DP, greedy), design patterns, or tech stacks
+- Topics should be within the following options: 
+    Arrays
+    Sorting
+    Strings
+    Hashing
+    Binary Search
+    Matrix
+    Recursion and Backtracking
+    Stack
+    Queue
+    Deque
+    Heap
+    Bit Manipulation
+    Linked List
+    Binary Tree
+    Binary Search Tree
+    Greedy
+    Dynamic Programming
+    Graph
+    Trie
 - Only include topics directly relevant to the code
 - Format: {"explanation": "...", "topics": ["topic1", "topic2"]}
             EXAMPLE JSON OUTPUT:
             {
                 "explanation": "something something",
-                "topics": ["tree", "dynamic programming"]
+                "topics": ["Trie", "Dynamic Programming"]
             }`,
       },
     ];
 
     messages.push({ role: "user", content: code_snippet });
-
     const completion = await openai.chat.completions.create({
       messages: messages,
       model: "deepseek-chat",
@@ -42,12 +60,11 @@ Guidelines:
     let response = JSON.parse(completion.choices[0].message.content);
     const topics = response.topics;
 
-    const topicsQuery= `
+    const topicsQuery = `
         SELECT id FROM topics
         WHERE topic IN (?)
         `;
-    const [topicsResult] = await pool.query(topicsQuery, [topics]);
-
+    const [topicsResult] = await pool.query(topicsQuery, [topics]); //topi
 
     const insertQuery = `
           INSERT INTO code_snippet_history (snippet, explanation)
@@ -58,7 +75,7 @@ Guidelines:
       code_snippet,
       response.explanation,
     ]);
-   
+
     const insertid = result.insertId;
 
     const values = topicsResult.map((row) => [insertid, row.id]); //preparing values to insert into code_snippet_topic_mapper table to link code snippet with its topics
@@ -69,7 +86,6 @@ Guidelines:
             `;
 
       await pool.query(insertQuery2, [values]); //inserting multiple rows at once to link code snippet with its topics in mapper table
-
     }
     return { answer: response.explanation, insertid, topics };
   } catch (error) {

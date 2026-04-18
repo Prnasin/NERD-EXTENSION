@@ -118,3 +118,5 @@ jest.setup.js
 *.tgz
 
 */dist
+
+__pycache__
