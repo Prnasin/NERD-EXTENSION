@@ -21,6 +21,32 @@ The project follows a modular structure:
 - SDK – Reusable chatbot services
 - Chrome Extension – User interaction layer
 
+```mermaid
+flowchart TD
+    subgraph Browser ["Client Layer"]
+        EXT["🧩 Chrome Extension (Manifest V3)"]
+        WEB["🎨 Next.js Frontend"]
+        SDK["💬 Pluggable React Chatbot SDK (Vite UMD)"]
+    end
+
+    subgraph Backend ["Backend & Intelligence Layer"]
+        API["⚙️ Node.js / Express Server"]
+        ML["🤖 Python ML Model (Scikit-Learn TF-IDF)"]
+        AI["🧠 DeepSeek AI API"]
+        DB[("🗄️ MySQL Database (GFG SDE Sheet)")]
+    end
+
+    EXT -- "1. Selected Text" --> API
+    API -- "2. Subprocess" --> ML
+    ML -- "3. Code vs Text (Confidence)" --> API
+    API -- "4. Show Button" --> EXT
+    EXT -- "5. Open Dashboard" --> WEB
+    WEB -- "6. Request Analysis" --> API
+    API -- "7. Explanation & Topics" --> AI
+    API -- "8. Fetch Questions" --> DB
+    SDK -- "9. Contextual Q&A" --> API
+```
+
 ## ⚙️ Backend
 
 Runtime: Node.js
