@@ -2,6 +2,7 @@
 
 Nerd Extension is a Chrome extension that helps developers quickly understand code from platforms like GitHub, LeetCode, and GeeksforGeeks.
 Users can select a code snippet and, with a single click, open a dedicated interface that provides clear explanations, contextual insights, and an interactive chat experience.
+https://github.com/user-attachments/assets/39b44f9a-4327-48f7-9828-dcf6fd7daac0
 
 ## Key Features
 
